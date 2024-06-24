@@ -39,11 +39,16 @@
       flex-wrap: wrap;
     }
     .album-info > img {
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 250px;
+      max-height: 250px;
     }
     li {
       font-size: 1.2rem;
+    }
+    li > div {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
     }
   </style>
 
@@ -52,7 +57,7 @@
 
 </head>
 
-<body style="margin-top: 0; max-width 50rem;">
+<body style="margin-top: 0; max-width: 50rem;">
     <p style="margin: 0;"><a href="https://allenii.wycre.net/">&lt Homepage</a></p>
     <br>
     <br>
@@ -63,7 +68,7 @@
         <img alt="A Second Guessing (EP) cover" class="album-image" src="/assets/A Second Guessing.png">
       </div>
       <ol>
-          <li><p>the guest</p><audio src="./LSD Allenii - A Second Guessing (EP) - 01 the guest.flac" controls></li>
+          <li><div><p>the guest</p><audio src="./LSD Allenii - A Second Guessing (EP) - 01 the guest.flac" controls></audio></div></li>
           <li><p>I&#39;m in love</p></li>
           <li><p>must be scary</p></li>
           <li><p>nothing more than easy for you</p></li>
