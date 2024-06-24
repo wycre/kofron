@@ -1,0 +1,57 @@
+  <div class="block">
+    
+  </div><!--/.postlisting-->
+
+</div><!--/.wrapper-->
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Atkinson+Hyperlegible);
+.footer-message {
+	color: #FFFFFF;
+	line-height: 1em;
+	font-size: 20px;
+	max-width: 80%;
+	margin: 0 auto;
+	font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+</style>
+
+<div id=video-message style="display: none;">
+                <p class="footer-message">
+                Your video playback may not be smooth<br><br>
+                The best way to watch these videos will be to download them
+                and play them locally on your computer.
+                </p>
+</div>
+
+<div id=singles-message style="display: none;">
+	<p class="footer-message">
+	This folder contains tracks that are not affiliated with any album
+	or the album they are a part of is unknown.
+	</p>
+</div>
+
+
+<div class="footer">
+  	Apaxy by <a href="https://twitter.com/adamwhitcroft">@adamwhitcroft</a>
+</div><!--/.footer-->
+<script src=/theme/apaxy.js></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js" integrity="sha256-rJzhAjlCghJKSkx4mAv3VwVgxDSAbNM0AH7PhP4cDns=" crossorigin="anonymous"></script>
+<script src=/theme/apaxy-lightgallery.js></script>
+
+<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+
+<!-- Set custom message based on folder -->
+<script>
+        if (document.URL == "https://kofron.wycre.net/archive/Videos/") {
+                console.log("Not Videos");
+                let el = $("#video-message").css("display", "inline-block", "!important");
+                console.log(el);
+        }
+	if (document.URL == "https://kofron.wycre.net/archive/Singles%20-%20Unknown%20Album/") {
+		$("#singles-message").css("display", "inline-block", "!important");
+	}
+	if (document.URL == "https://kofron.wycre.net/archive/Albums/") {
+		$("#albums-message")
+</script>

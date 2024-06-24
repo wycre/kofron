@@ -1,0 +1,19 @@
+.prev-audio {
+  position: relative; 
+  height: 30px; 
+  max-width: 50%;
+}
+
+@media screen and (max-width: 1080px) {
+  audio::-webkit-media-controls-mute-button {
+    display: none !important;
+  }
+
+  audio::-webkit-media-controls-volume-slider {
+    display: none !important;
+  }
+
+  .prev-audio {
+    max-width: 10% !important;
+  }
+}

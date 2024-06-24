@@ -1,0 +1,173 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt23C1KxNDXMspQ1lPyU89-1h6ONRlW45G07JIoSwQ.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: swap;
+}
+/* latin */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt23C1KxNDXMspQ1lPyU89-1h6ONRlW45G04pIo.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  font-display: swap;
+}
+
+
+body {
+	font-family: "Atkinson Hyperlegible", sans-serif !important;
+  margin-top: 200px;
+}
+
+p {
+  margin-top: 5px;
+}
+
+ul, ol {
+  margin-top: 0;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+
+/* Remove table on small screens */
+@media screen and (max-width: 873px) {
+  .changelog-table {
+    display: none;
+  }
+
+  .sc-hide {
+    display: none !important;
+  }
+
+  .changelog-display-size {
+    display: block;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .important-link a,
+  .important-link a:visited,
+  a.important-link,
+  a.important-link:visited {
+    padding: 10px;
+    border: #01ff70 5px;
+    border-style: solid;
+    border-radius: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.3rem;
+  }
+
+  .important-link a:hover,
+  .important-link a:focus,
+  .important-link a:active,
+  a.important-link:hover, 
+  a.important-link:focus, 
+  a.important-link:active {
+    padding: 10px;
+    border: #2ecc40 5px;
+    border-style: solid;
+    border-radius: 15px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  div.important-link {
+    display: flex;
+    justify-content: center;
+  }
+
+  div#discography {
+    flex-direction: column;
+  }
+
+  .additional-link,
+  .additional-link:visited {
+    border: #01ff70 5px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .additional-link:hover,
+  .additional-link:focus,
+  .additional-link:active {
+    border: #2ecc40 5px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  #discuss {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sectionheading {
+    text-align: center;
+  }
+
+}
+
+/* Remove screen size disclaimer on large screens */
+@media screen and (min-width: 874px) {
+  .changelog-table {
+    display: inline-table;
+    min-width: 100%;
+  }
+
+  .changelog-display-size {
+    display: none;
+  }
+
+  .important-link {
+    font-size: 1.45rem !important;
+  }
+  
+  .important-link a {
+    font-size: 1.45rem !important;
+  }
+}
+
+
+.subheading {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.subline {
+  border-bottom: 1px dashed;
+  border-top: 0;
+}
+
+.title {
+  text-align: center;
+}
+
+
+.missing {
+  color: tomato;
+}
+
+.album-image {
+  max-width: 10rem;
+  float: right;
+}
+
+#LSD-Allenii-music-archive {
+  margin-top: 9px;
+}
+
+
+.inline {
+  display: inline;
+}

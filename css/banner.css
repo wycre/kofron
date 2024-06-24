@@ -1,0 +1,47 @@
+.tech-slideshow, .mover-1 {
+  height: 200px;
+}
+
+.tech-slideshow {
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* The width is determined by (number of images) * 4 * 200  */
+.mover-1 {
+  width: 10400px;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+  overflow: hidden;
+  position: fixed;
+}
+
+/* Removes whitespace gap between anchors */
+.banner-image {
+  float: left;
+  height: 100%;
+}
+
+.banner-image img {
+  width: 200px;
+  height: 200px;
+}
+
+.tech-slideshow .mover-1 {
+  animation: moveSlideshow 120s linear infinite;
+}
+
+@keyframes moveSlideshow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% { 
+    transform: translateX(-50%);  
+  }
+}

@@ -1,0 +1,180 @@
+  <div class="block">
+
+  </div><!--/.postlisting-->
+
+<!--These divs store custom messages that are normally hidden-->
+
+<div id=video-message style="display: none;">
+        <p class="footer-message">
+        Your video playback may not be smooth.<br><br>
+        The best way to watch these videos will be to download them
+        and play them locally on your computer.
+        </p>
+</div>
+
+<div id=singles-message style="display: none;">
+	<p class="footer-message">
+	This folder contains tracks that are not known to be affiliated with any album.
+	</p>
+</div>
+
+<div id=albums-message style="display: none;">
+	<p class="footer-message">
+	This folder contains all the albums that
+	we were able to find information on.
+	</p>
+</div>
+
+<div id=toy-box-message style="display: none;">
+	<h3 class="footer-message">Description</h3>
+	<p class="footer-message">
+	You wake up in a dark wooded area, shirt drenched in sweat. You feel the leaves beneath your fingers as you clutch the Earth; you are grateful to finally have something to hold on to. You remember how the whirling air screamed past your ears as you spun a thousand RPMs inside a top-like UFO, with the Grey People watching through an observation window - testing you. Suddenly you hear a low hum coming from the treetops, a siren in the distance, a maniac laughing in your ear. That's when you realize the Hell has only just begun...<br><br>... now Shut Up and listen to this thing I made.
+	</p>
+	<h3 class="footer-message">Credits</h3>
+	<p class="footer-message">
+		thanks to a good friend of mine for helping me with some choice audio equipment
+	</p>
+</div>
+
+<div id=nopub-message style="display: none;">
+	<p class="footer-message">
+		These folders are not part of the primary archive,
+		they are here to ensure completeness, but were excluded from the archive 
+		because they are deemed of lower quality or not worth including.
+	</p>
+</div>
+
+<div id=upgrade-message style="display: none;">
+	<p class="footer-message">
+		This folder contains partial upgrades to the archive, as well as more detailed changelogs within each partial upgrade.
+	</p>
+</div>
+
+
+</div><!--/.wrapper-->
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Atkinson+Hyperlegible);
+.footer-message {
+	color: #FFFFFF;
+	line-height: 1em;
+	font-size: 20px;
+	font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+.rm-link {
+	text-decoration: underline;
+	color: #01ff70;
+	font-family: "Courier New";
+}
+
+.rm-link:hover, .rm-link:focus, .rm-link:active {
+	color: #2ecc40;
+}
+
+</style>
+
+
+
+<div class="footer">
+  	<p>Page made with <a href="https://github.com/wycre/apaxy">Apaxy</a></p>
+</div><!--/.footer-->
+<script src=/theme/apaxy.js></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/lightgallery.min.js" integrity="sha256-rJzhAjlCghJKSkx4mAv3VwVgxDSAbNM0AH7PhP4cDns=" crossorigin="anonymous"></script>
+<script src=/theme/apaxy-lightgallery.js></script>
+
+<script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+
+<!-- Custom behavior -->
+<script>
+
+	/*
+	* Handle custom readme messages in the footer
+	*/
+
+  if (document.URL == "https://allenii.wycre.net/archive/Videos/") {
+    let el = $("#video-message").css("display", "inline-block", "!important");
+  }
+  else if (document.URL == "https://allenii.wycre.net/archive/Singles/") {
+    $("#singles-message").css("display", "inline-block", "!important");
+  }
+  else if (document.URL == "https://allenii.wycre.net/archive/Albums/") {
+    $("#albums-message").css("display", "inline-block", "!important");
+  }
+  else if (document.URL == "https://allenii.wycre.net/archive/Albums/Shut%20Up%20(EP)/") {
+    $("#toy-box-message").css("display", "inline-block", "!important");
+  }
+  else if (document.URL == "https://allenii.wycre.net/nopublish/") {
+    $("#nopub-message").css("display", "inline-block", "!important");
+  }
+  else if (document.URL == "https://allenii.wycre.net/archive/upgrades/") {
+  	$("#upgrade-message").css("display", "inline-block", "!important");
+  }
+
+  /*
+	* Add album cover image if present
+	*/
+  if (document.querySelectorAll('a[href="cover.png"]').length > 0) {
+   let coverimg = document.createElement('img');
+   coverimg.src = "cover.png";
+   coverimg.style = "max-width: 7rem";
+   $("#breadcrumb").after(coverimg);
+  }
+
+	
+	
+	/*
+	* Add audio element to page for each song
+	*/
+
+	// Select links ending with "mp3" or "flac"
+	let nodes = document.querySelectorAll('a[href$="mp3"], a[href$="flac"]');
+	nodes = Array.from(nodes);
+	nodes = nodes.filter((_, index) => index % 2 !== 0); // Filter out duplicate links
+
+	// All new elements created	
+	var newDataEls = [];
+
+	// Check if there are nodes before attempting to modify the table
+	if (nodes.length > 0) {
+
+	  // Find the last modification column and insert a new header
+	  let lastModHead = document.querySelector('th.indexcollastmod');
+	  let newHead = document.createElement('th');
+	  newHead.innerHTML = "Listen";
+	  lastModHead.parentNode.insertBefore(newHead, lastModHead);
+	  
+	  // Select the elements in the last modified column
+	  var lastModEls = document.querySelectorAll('td.indexcollastmod');
+
+	  lastModEls.forEach(function (element) {
+	    var newSibling = document.createElement('td');
+	    
+	    // Insert new element before lastMod column
+	    element.parentNode.insertBefore(newSibling, element); 
+	    newDataEls.push(newSibling);
+	  });
+
+	  // Iterate through the audio links and create audio elements
+	  let j = 0;
+	  for (let i = 0; i < nodes.length; i++) {
+	    let obj = document.createElement('audio');
+	    obj.src = nodes[i].href;
+	    obj.controls = "true";
+	    obj.classList = "prev-audio"
+	    
+	    // Proposed location is neweDataEls[j],
+	    //   If this location does not have the same link as the new desired element
+	    //   Skip this and increment j
+	    while (newDataEls[j].previousSibling.children[0].href !== nodes[i].href) {
+	      j++;
+	    }
+	    newDataEls[j].appendChild(obj);
+	    j++;
+	  }
+	}
+
+
+  
+
+</script>
